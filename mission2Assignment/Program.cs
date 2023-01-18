@@ -6,13 +6,14 @@ namespace mission2Assignment
     {
         static void Main(string[] args)
         {
-
+            // Take in the number of rolls
             Console.WriteLine("Welcome! How many times woud you like to roll the dice?");
             int numRolls = Convert.ToInt32(Console.ReadLine());
 
+            // initialize the array that holds each roll
             int[] totals = new int[0];
 
-
+            // perform the rolls and add each roll to the array
             for (int i = 0; i < numRolls; i++)
             {
                 Random rand = new Random();
@@ -21,9 +22,10 @@ namespace mission2Assignment
                 int total = roll1 + roll2;
                 Array.Resize(ref totals, totals.Length + 1);
                 totals[totals.Length - 1] = total;
-               // Console.WriteLine("You rolled a " + roll1 + " and a " + roll2 + " for a total of " + total);
+               
             }
 
+            // initialize a counter system
             int counter2 = 0;
             int counter3 = 0;
             int counter4 = 0;
@@ -36,7 +38,7 @@ namespace mission2Assignment
             int counter11 = 0;
             int counter12 = 0;
 
-
+            // go through the totals array and add to each counter variable based on the roll that was made
             for (int i = 0; i < totals.Length; i++)
             {
                 int currentNum = (totals[i]);
@@ -99,6 +101,7 @@ namespace mission2Assignment
             double proportion11 = Convert.ToDouble(counter11) / numRolls;
             double proportion12 = Convert.ToDouble(counter12) / numRolls;
 
+            // round it 
             int roundedProportion2 = (int)Math.Round(proportion2 * 100);
             int roundedProportion3 = (int)Math.Round(proportion3 * 100);
             int roundedProportion4 = (int)Math.Round(proportion4 * 100);
@@ -111,6 +114,7 @@ namespace mission2Assignment
             int roundedProportion11 = (int)Math.Round(proportion11 * 100);
             int roundedProportion12 = (int)Math.Round(proportion12 * 100);
 
+            // create variables to dynamically load the number of asterisks
             string asterisk2 = new string('*', roundedProportion2);
             string asterisk3 = new string('*', roundedProportion3);
             string asterisk4 = new string('*', roundedProportion4);
@@ -125,7 +129,7 @@ namespace mission2Assignment
 
 
             Console.WriteLine("Here is a breakdown of your rolls. Each * represents 1% of the total rolls.");
-
+            // show the breakdown of rolls and asterisks
             Console.WriteLine("2: " + asterisk2);
             Console.WriteLine("3: " +  asterisk3) ;
             Console.WriteLine("4: " +  asterisk4) ;
@@ -138,7 +142,7 @@ namespace mission2Assignment
             Console.WriteLine("11: " + asterisk11);
             Console.WriteLine("12: " + asterisk12);
 
-
+            //end the program
             Console.WriteLine("Thank you! Bye.");
         }
 
